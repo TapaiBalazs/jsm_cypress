@@ -1,0 +1,14 @@
+<h2 class="pizza-name">
+  {{ pizza?.name }}
+  <span class="pizza-price"> {{ pizza?.price | formatMoney }}</span>
+</h2>
+<p>{{ pizza?.description }}</p>
+<div class="button-container" *ngIf="pizza">
+  <button
+    class="remove-from-cart"
+    data-test-id="remove from cart button"
+    (click)="removeFromCart()"
+  >
+    Remove
+  </button>
+</div>

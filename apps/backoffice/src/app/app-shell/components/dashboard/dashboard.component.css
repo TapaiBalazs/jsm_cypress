@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  cursor: pointer;
+}
+
+.mat-card img {
+  width: 300px;
+  object-position: bottom;
+  object-fit: contain;
+}
+
+.mat-card-footer p {
+  text-align: right;
+  padding: 0.5rem;
+  user-select: none;
+}

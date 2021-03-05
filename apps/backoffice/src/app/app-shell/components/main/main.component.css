@@ -1,0 +1,23 @@
+.main.header {
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main.contents {
+  overflow: auto;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+}

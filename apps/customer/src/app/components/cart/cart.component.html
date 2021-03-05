@@ -1,0 +1,53 @@
+<ng-container *ngIf="cart$ | async as cart">
+  <div class="orders">
+    <h2
+      data-test-id="empty order message"
+      *ngIf="!cart.length; else cartcontent"
+    >
+      Please, place an order first.
+    </h2>
+
+    <ng-container *ngFor="let order of cart">
+      <cat-order-pizza-display
+        [attr.data-test-id]="'order_' + order.name"
+        [pizza]="order"
+      ></cat-order-pizza-display>
+    </ng-container>
+  </div>
+  <form class="address" [formGroup]="form">
+    <h2>Your address:</h2>
+
+    <div>
+      <label for="city">City</label>
+      <input id="city" formControlName="city" />
+    </div>
+
+    <div>
+      <label for="street">Street</label>
+      <input id="street" formControlName="street" />
+    </div>
+
+    <div>
+      <label for="payment_method">Payment method</label>
+      <select id="payment_method" formControlName="paymentType">
+        <option value="CASH">Cash</option>
+        <option value="CARD">Credit/Debit Card</option>
+      </select>
+    </div>
+
+    <div class="button-container">
+      <button
+        class="place-order"
+        data-test-id="place order"
+        [disabled]="!cart.length || !form.valid"
+        (click)="sendOrder()"
+      >
+        Place order
+      </button>
+    </div>
+  </form>
+</ng-container>
+
+<ng-template #cartcontent>
+  <h2>Your orders:</h2>
+</ng-template>

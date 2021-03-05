@@ -1,0 +1,37 @@
+[
+  {
+    "id": 7896,
+    "address": "Gotham, Crime Alley 32.",
+    "paymentType": "CARD",
+    "pizzas": [
+      {
+        "id": 2,
+        "name": "Prosciutto",
+        "price": 1345,
+        "imageUrl": "/api/pizza/images/2.jpg",
+        "description": "Tomato sauce, ham, mozzarella, oregano"
+      },
+      {
+        "id": 3,
+        "name": "Diavola",
+        "price": 1345,
+        "imageUrl": "/api/pizza/images/3.jpg",
+        "description": "Tomato sauce, Italian spicy salami, mozzarella"
+      }
+    ]
+  },
+  {
+    "id": 2341,
+    "address": "Gotham, Arkham street 92",
+    "paymentType": "CASH",
+    "pizzas": [
+      {
+        "id": 3,
+        "name": "Diavola",
+        "price": 1345,
+        "imageUrl": "/api/pizza/images/3.jpg",
+        "description": "Tomato sauce, Italian spicy salami, mozzarella"
+      }
+    ]
+  }
+]

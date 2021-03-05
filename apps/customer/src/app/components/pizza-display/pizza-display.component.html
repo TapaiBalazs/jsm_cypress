@@ -1,0 +1,20 @@
+<div class="pizza-image" *ngIf="isDesktop">
+  <img [src]="pizza?.imageUrl" alt="" />
+</div>
+
+<div class="pizza-metadata">
+  <h2 class="pizza-name">
+    {{ pizza?.name }}
+    <span class="pizza-price"> {{ pizza?.price | formatMoney }}</span>
+  </h2>
+  <p>{{ pizza?.description }}</p>
+  <div class="button-container" *ngIf="pizza">
+    <button
+      class="add-to-cart"
+      data-test-id="add to cart button"
+      (click)="addToCart()"
+    >
+      Add to cart
+    </button>
+  </div>
+</div>

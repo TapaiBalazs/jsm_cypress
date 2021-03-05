@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 1px -2px rgb(0 0 0/20%), 0 2px 2px 0 rgb(0 0 0/14%),
+    0 1px 5px 0 rgb(0 0 0/12%);
+  padding: 0.3rem;
+}
+
+.pizza-metadata {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+  padding: 0 1rem;
+}
+
+.pizza-name {
+  display: flex;
+  justify-content: space-between;
+  color: darkred;
+  font-weight: bold;
+}
+
+.pizza-price {
+  font-style: italic;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.add-to-cart {
+  font-size: 1.2rem;
+  background-color: darkred;
+  color: whitesmoke;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}

@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  color: red;
+}

@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+details {
+  display: flex;
+  flex: 1 1 auto;
+  font-size: 1.4rem;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 0 3px 1px -2px rgb(0 0 0/20%), 0 2px 2px 0 rgb(0 0 0/14%),
+    0 1px 5px 0 rgb(0 0 0/12%);
+  margin-bottom: 0.6rem;
+}
+
+summary {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.2rem;
+}
+
+h2.error-message {
+  color: red;
+}

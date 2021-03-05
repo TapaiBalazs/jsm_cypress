@@ -1,0 +1,18 @@
+<ng-container *ngIf="pizzaList$ | async as pizzas; else networkError">
+  <h2 data-test-id="no delivery" *ngIf="!pizzas.length">
+    Sorry, but we are not delivering pizzas at the moment.
+  </h2>
+
+  <cat-pizza-display
+    *ngFor="let pizza of pizzas; trackBy: trackBy"
+    [attr.data-test-id]="pizza.name"
+    [pizza]="pizza"
+  >
+  </cat-pizza-display>
+</ng-container>
+
+<ng-template #networkError>
+  <h2 data-test-id="server error" class="server-error">
+    Sorry, an unexpected error occurred!
+  </h2>
+</ng-template>

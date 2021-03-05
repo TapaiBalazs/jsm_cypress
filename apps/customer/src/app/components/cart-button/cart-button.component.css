@@ -1,0 +1,36 @@
+:host {
+  color: whitesmoke;
+  font-size: 1.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  justify-content: center;
+  width: 150px;
+}
+
+a.light-up {
+  opacity: 1;
+}
+a:hover {
+  opacity: 1;
+  color: white;
+}
+
+a {
+  opacity: 0.7;
+  color: whitesmoke;
+  text-decoration: none;
+  display: flex;
+}
+
+a:before {
+  content: '';
+  padding: 2px;
+  justify-self: center;
+  align-self: center;
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  padding-right: 4rem;
+  background: darkred url('/assets/cart--white.png') no-repeat 0 0;
+}

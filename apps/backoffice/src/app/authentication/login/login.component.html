@@ -1,0 +1,53 @@
+<mat-card class="login-card mat-elevation-z18">
+  <mat-card-header>
+    <mat-card-title> Oregano and Basil </mat-card-title>
+    <mat-card-subtitle style="text-align: center"> Login </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      [formGroup]="form"
+      method="POST"
+      class="login-form"
+      (ngSubmit)="$event.preventDefault()"
+    >
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          data-test-id="login username"
+          formControlName="username"
+          (keydown.enter)="login()"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          data-test-id="login password"
+          formControlName="password"
+          required
+          (keydown.enter)="login()"
+          type="password"
+        />
+        <mat-hint
+          data-test-id="login credentials error"
+          class="invalid-credentials-error"
+          *ngIf="isInvalidCredentials"
+        >
+          Invalid credentials
+        </mat-hint>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      data-test-id="login button"
+      color="primary"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </mat-card-actions>
+</mat-card>

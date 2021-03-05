@@ -1,0 +1,29 @@
+<ng-container *ngIf="orders$ | async; let orders; else: networkError">
+  <h2 *ngIf="!orders.length">No orders.</h2>
+
+  <details
+    [attr.data-test-id]="'order item ' + (i + 1)"
+    *ngFor="let order of orders; let i = index"
+  >
+    <summary>
+      #{{ order.id }} -
+      <strong
+        >{{ order.pizzas | sum | formatMoney }}, {{ order.paymentType }}</strong
+      >
+      - Address: {{ order.address }}
+    </summary>
+
+    <div
+      [attr.data-test-id]="pizza.name"
+      class="pizza detail"
+      *ngFor="let pizza of order.pizzas"
+    >
+      <h3>{{ pizza.name }} - {{ pizza.price | formatMoney }}</h3>
+      <p>{{ pizza.description }}</p>
+    </div>
+  </details>
+</ng-container>
+
+<ng-template #networkError>
+  <h2 class="error-message">A network error occured.</h2>
+</ng-template>

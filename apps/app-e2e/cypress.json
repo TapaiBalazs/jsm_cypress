@@ -1,0 +1,19 @@
+{
+  "fileServerFolder": ".",
+  "fixturesFolder": "./src/fixtures",
+  "integrationFolder": "./src/integration",
+  "modifyObstructiveCode": false,
+  "pluginsFile": "./src/plugins/index",
+  "supportFile": "./src/support/index.ts",
+  "video": true,
+  "videosFolder": "../../dist/cypress/apps/app-e2e/videos",
+  "screenshotsFolder": "../../dist/cypress/apps/app-e2e/screenshots",
+  "chromeWebSecurity": false,
+  "viewportHeight": 1080,
+  "viewportWidth": 1920,
+  "env": {
+    "CUSTOMER": "http://localhost:4200/",
+    "BACKOFFICE": "http://localhost:4300/",
+    "API": "http://localhost:3333/"
+  }
+}

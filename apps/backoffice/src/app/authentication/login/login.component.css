@@ -1,0 +1,47 @@
+:host {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  background-size: cover;
+  grid-template-columns: auto 30vw auto;
+  grid-template-rows: 2fr 1fr 2fr;
+  grid-template-areas:
+    'top top top'
+    'left login right'
+    'bottom bottom bottom';
+}
+
+.login-card {
+  grid-area: login;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-card-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 80%;
+}
+
+.invalid-credentials-error {
+  color: red;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
