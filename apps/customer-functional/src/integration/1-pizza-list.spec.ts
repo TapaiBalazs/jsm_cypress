@@ -25,4 +25,31 @@ describe(`Pizza interceptors`, () => {
     });
   });
 
+  describe(`when there is a proper pizza list response`, () => {
+    beforeEach(() => {
+      cy.intercept('GET', '/api/pizza/list', { fixture: 'pizzas.json' }).as('pizzas');
+      cy.intercept('GET', '/api/pizza/images/*.jpg', { fixture: 'pizza.jpg' }).as('pizzaImage');
+      cy.visit('/pizza');
+      cy.wait('@pizzas');
+    });
+
+    it(`should display the Margherita pizza`, () => {
+      cy.get(`[data-test-id="Margherita"]`)
+        .as('margherita')
+        .should('be.visible');
+
+      cy.get('@margherita')
+        .find(`img`)
+        .should('exist')
+        .and('be.visible')
+        .and('have.attr', 'src', '/api/pizza/images/1.jpg');
+
+      cy.get('@margherita')
+        .find('[data-test-id="add to cart button"]')
+        .should('be.visible')
+        .and('not.be.disabled');
+    });
+  });
+
+
 });
