@@ -51,8 +51,21 @@ describe(`Order list page`, () => {
   });
 
   describe(`with an expired token`, () => {
-    /**
-     * Write your code here
-     */
+    it(`the user gets redirected to the '/login' page`, () => {
+      cy.intercept('GET', 'api/orders', { statusCode: 403 }).as('orders');
+
+      cy.visit('/admin/orders', {
+        onBeforeLoad: (window: AUTWindow) => {
+          window.sessionStorage.setItem('AUTH_TOKEN', `${new Date().getTime()}`);
+        }
+      });
+
+      cy.wait('@orders');
+
+      cy.url().should('contain', '/login');
+      cy.window().then((window: AUTWindow) => {
+        expect(window.sessionStorage.getItem('AUTH_TOKEN')).to.equal(null)
+      })
+    });
   });
 });
