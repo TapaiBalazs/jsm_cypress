@@ -91,73 +91,9 @@ describe(`The Cart page`, () => {
     });
 
     describe(`placing an order`, () => {
-      beforeEach(() => {
-        cy.get('#city').should('be.visible').and('not.disabled').type(`Gotham`);
-
-        cy.get('#street')
-          .should('be.visible')
-          .and('not.disabled')
-          .type(`Crime Alley 32.`);
-
-        cy.get('#payment_method')
-          .should('be.visible')
-          .and('not.disabled')
-          .select('CARD');
-      });
-
-      it(`a successful order navigates to the /success page and clears the cart contents`, () => {
-        cy.intercept('POST', '/api/order', { body: 1 }).as('orderRequest');
-
-        cy.get(`[data-test-id="place order"]`)
-          .should('be.visible')
-          .and('not.be.disabled')
-          .click();
-
-        cy.wait('@orderRequest').its('request.body').should('deep.include', {
-          address: 'Gotham, Crime Alley 32.',
-          paymentType: 'CARD',
-        });
-        cy.url().should('contain', '/success');
-
-        cy.get(`[data-test-id="success message"]`)
-          .should('be.visible')
-          .and('contain', 'Your order is on its way!');
-
-        cy.get(`[data-test-id="cart button"]`)
-          .should('be.visible')
-          .and('have.css', 'opacity', '0.7')
-          .and('contain', '$0');
-      });
-
-      it(`when an error occurs, user should be redirected to the error page with the cart contents kept`, () => {
-        cy.intercept('POST', '/api/order', { forceNetworkError: true }).as(
-          'orderRequest'
-        );
-
-        cy.get(`[data-test-id="place order"]`)
-          .should('be.visible')
-          .and('not.be.disabled')
-          .click();
-
-        cy.wait('@orderRequest').its('request.body').should('deep.include', {
-          address: 'Gotham, Crime Alley 32.',
-          paymentType: 'CARD',
-        });
-
-        cy.url().should('contain', '/error');
-
-        cy.get(`[data-test-id="error message"]`)
-          .should('be.visible')
-          .and(
-            'contain',
-            'Sorry, an unexpected error occurred. Please try again later.'
-          );
-
-        cy.get(`[data-test-id="cart button"]`)
-          .should('be.visible')
-          .and('have.css', 'opacity', '1')
-          .and('contain', '$26.90');
-      });
+      /**
+       * Write your code here
+       */
     });
   });
 });
