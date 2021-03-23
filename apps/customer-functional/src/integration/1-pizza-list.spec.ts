@@ -51,5 +51,27 @@ describe(`Pizza interceptors`, () => {
     });
   });
 
+  describe(`when an error occurs`, () => {
+    it(`as an unknown server error`, () => {
+      cy.intercept('GET', '/api/pizza/list', { statusCode: 500 }).as('serverError');
+      cy.visit('/');
+      cy.wait('@serverError');
 
+      cy.get(`[data-test-id="server error"]`)
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Sorry, an unexpected error occurred!');
+    });
+
+    it(`as a network error`, () => {
+      cy.intercept('GET', '/api/pizza/list', { forceNetworkError: true }).as('networkError');
+      cy.visit('/');
+      cy.wait('@networkError');
+
+      cy.get(`[data-test-id="server error"]`)
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Sorry, an unexpected error occurred!');
+    });
+  });
 });
