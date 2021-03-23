@@ -29,7 +29,19 @@ describe(`Login`, () => {
     cy.url().should('contain', 'login');
   });
 
-  /**
-   * Write your code here
-   */
+  describe(`with invalid credentials`, () => {
+    it(`displays an error message`, () => {
+      cy.intercept('POST', '/api/login', { statusCode: 401 }).as('login');
+
+      cy.get(`[data-test-id="login credentials error"]`)
+        .should('not.exist');
+
+      cy.fillCredentials('Oregano', 'basil')
+        .login();
+      cy.get(`[data-test-id="login credentials error"]`)
+        .should('be.visible')
+        .and('have.css', 'color', 'rgb(255, 0, 0)')
+    });
+  });
+
 });
