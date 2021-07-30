@@ -12,10 +12,12 @@
 // the project's config changing)
 
 const { preprocessTypescript } = require('@nrwl/cypress/plugins/preprocessor');
+const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin');
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  addMatchImageSnapshotPlugin(on, config);
 
   // Preprocess Typescript file using Nx helper
   on('file:preprocessor', preprocessTypescript(config));

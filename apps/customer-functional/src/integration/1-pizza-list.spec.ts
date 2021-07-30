@@ -19,7 +19,7 @@ describe(`Pizza interceptors`, () => {
     });
 
     it(`a message should be displayed`, () => {
-      // we get the whole pizza row which has the data-test-id
+      // we get the error message that has the data-test-id
       cy.get(`[data-test-id="no delivery"]`)
         .should('exist')
         .and('be.visible')
@@ -27,6 +27,8 @@ describe(`Pizza interceptors`, () => {
           'contain',
           'Sorry, but we are not delivering pizzas at the moment.'
         );
+
+      cy.matchImageSnapshot('Empty pizza list')
     });
   });
 
@@ -67,13 +69,15 @@ describe(`Pizza interceptors`, () => {
       cy.get('@margherita')
         .find('[data-test-id="add to cart button"]')
         .should('be.visible')
-        .and('not.be.disabled');
+        .and('not.be.disabled')
+        .click()
 
       cy.get(`[data-test-id="cart button"]`)
         .should('be.visible')
         .and('have.css', 'opacity', '1')
         .and('contain', '$12.90')
-        .click();
+
+      cy.matchImageSnapshot('Pizzas')
     });
   });
 

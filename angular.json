@@ -257,6 +257,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "backoffice:serve:production"
+            },
+            "snapshot": {
+              "cypressConfig": "apps/backoffice-functional/cypress.snapshot.json"
             }
           }
         },
@@ -384,6 +387,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "customer:serve:production"
+            },
+            "snapshot": {
+              "cypressConfig": "apps/customer-functional/cypress.snapshot.json"
             }
           }
         },

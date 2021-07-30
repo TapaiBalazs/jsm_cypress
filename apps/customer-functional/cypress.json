@@ -1,4 +1,7 @@
 {
+  "env": {
+    "ALLOW_SCREENSHOT": false
+  },
   "fileServerFolder": ".",
   "fixturesFolder": "./src/fixtures",
   "integrationFolder": "./src/integration",

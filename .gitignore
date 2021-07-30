@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 
+**/__diff_output__
+
 # dependencies
 /node_modules
 

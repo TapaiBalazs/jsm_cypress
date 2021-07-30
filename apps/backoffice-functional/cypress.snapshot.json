@@ -1,6 +1,6 @@
 {
   "env": {
-    "ALLOW_SCREENSHOT": false
+    "ALLOW_SCREENSHOT": true
   },
   "fileServerFolder": ".",
   "fixturesFolder": "./src/fixtures",

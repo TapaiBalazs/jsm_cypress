@@ -1,7 +1,7 @@
 {
   "npmScope": "cat",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "origin/main"
   },
   "implicitDependencies": {
     "angular.json": "*",
